@@ -119,8 +119,307 @@ function deleteRow() {
 
 }
 
+var sortOrder = 1;
+document.getElementById("sortname").onclick = function () {
+    let tbody = document.querySelector("#datatable #table")
+
+    if (sortOrder == 1) {
+        sortOrder *= -1;
+    }
+    else {
+        sortOrder = 1;
+    }
+    storedArray = JSON.parse(localStorage.getItem("products"));
+    const locale = 'en-US'
+    storedArray = storedArray.sort((a, b) => a.name.localeCompare(b.name) * sortOrder);
+    tbody.innerHTML = "";
 
 
+    for (let i = 0; i < storedArray.length; i++) {
+        let obj = storedArray[i];
+
+        let row = document.createElement("tr");
+
+        let idCell = document.createElement("td");
+
+        idCell.textContent = id_count;
+        row.appendChild(idCell);
+
+        let nameCell = document.createElement("td");
+        nameCell.textContent = obj.name;
+        row.appendChild(nameCell);
+
+        let quantityCell = document.createElement("td");
+        quantityCell.textContent = obj.quantity;
+        row.appendChild(quantityCell);
+
+        let priceCell = document.createElement("td");
+        priceCell.textContent = obj.price;
+        row.appendChild(priceCell);
+
+
+        let totalCell = document.createElement("td");
+        let total = obj.price * obj.quantity;
+        totalCell.textContent = total;
+        row.appendChild(totalCell);
+
+        let descriptionCell2 = document.createElement("td");
+        descriptionCell2.textContent = obj.description;
+        row.appendChild(descriptionCell2);
+
+
+
+        let cell = document.createElement("td");
+        row.appendChild(cell)
+
+        let editCell = document.createElement("button");
+        editCell.textContent = "Edit";
+        editCell.id = obj.id;
+        row.appendChild(editCell);
+        editCell.onclick = editRow;
+
+        row.appendChild(cell);
+
+        let deleteCell = document.createElement("button");
+        deleteCell.textContent = "Delete";
+        deleteCell.id = obj.id;
+
+        deleteCell.onclick = deleteRow;
+        cell.appendChild(deleteCell);
+
+        tbody.appendChild(row);
+    }
+
+
+}
+
+var sortOrder_p = 1;
+document.getElementById("sortPrice").onclick = function () {
+    let tbody = document.querySelector("#datatable #table")
+    storedArray = JSON.parse(localStorage.getItem("products"));
+    if (sortOrder_p == 1) {
+        sortOrder_p *= -1;
+    }
+    else {
+        sortOrder_p = 1;
+    }
+
+
+    storedArray = storedArray.sort((a, b) => {
+        return sortOrder_p === 1 ? a.price - b.price : b.price - a.price;
+    });
+
+    tbody.innerHTML = "";
+
+
+    for (let i = 0; i < storedArray.length; i++) {
+        let obj = storedArray[i];
+
+        let row = document.createElement("tr");
+
+        let idCell = document.createElement("td");
+
+        idCell.textContent = id_count;
+        row.appendChild(idCell);
+
+        let nameCell = document.createElement("td");
+        nameCell.textContent = obj.name;
+        row.appendChild(nameCell);
+
+        let quantityCell = document.createElement("td");
+        quantityCell.textContent = obj.quantity;
+        row.appendChild(quantityCell);
+
+        let priceCell = document.createElement("td");
+        priceCell.textContent = obj.price;
+        row.appendChild(priceCell);
+
+
+        let totalCell = document.createElement("td");
+        let total = obj.price * obj.quantity;
+        totalCell.textContent = total;
+        row.appendChild(totalCell);
+
+        let descriptionCell2 = document.createElement("td");
+        descriptionCell2.textContent = obj.description;
+        row.appendChild(descriptionCell2);
+
+
+
+        let cell = document.createElement("td");
+        row.appendChild(cell)
+
+        let editCell = document.createElement("button");
+        editCell.textContent = "Edit";
+        editCell.id = obj.id;
+        row.appendChild(editCell);
+        editCell.onclick = editRow;
+
+        row.appendChild(cell);
+
+        let deleteCell = document.createElement("button");
+        deleteCell.textContent = "Delete";
+        deleteCell.id = obj.id;
+
+        deleteCell.onclick = deleteRow;
+        cell.appendChild(deleteCell);
+
+        tbody.appendChild(row);
+    }
+
+
+}
+
+var sortOrder_t = 1;
+document.getElementById("sortTotal").onclick = function () {
+    let tbody = document.querySelector("#datatable #table")
+
+    if (sortOrder_t == 1) {
+        sortOrder_t *= -1;
+    }
+    else {
+        sortOrder_t = 1;
+    }
+    storedArray = JSON.parse(localStorage.getItem("products"));
+    const locale = 'en-US'
+    storedArray = storedArray.sort((a, b) => a.total.localeCompare(b.total) * sortOrder_t);
+    tbody.innerHTML = "";
+
+
+    for (let i = 0; i < storedArray.length; i++) {
+        let obj = storedArray[i];
+
+        let row = document.createElement("tr");
+
+        let idCell = document.createElement("td");
+
+        idCell.textContent = id_count;
+        row.appendChild(idCell);
+
+        let nameCell = document.createElement("td");
+        nameCell.textContent = obj.name;
+        row.appendChild(nameCell);
+
+        let quantityCell = document.createElement("td");
+        quantityCell.textContent = obj.quantity;
+        row.appendChild(quantityCell);
+
+        let priceCell = document.createElement("td");
+        priceCell.textContent = obj.price;
+        row.appendChild(priceCell);
+
+
+        let totalCell = document.createElement("td");
+        let total = obj.price * obj.quantity;
+        totalCell.textContent = total;
+        row.appendChild(totalCell);
+
+        let descriptionCell2 = document.createElement("td");
+        descriptionCell2.textContent = obj.description;
+        row.appendChild(descriptionCell2);
+
+
+
+        let cell = document.createElement("td");
+        row.appendChild(cell)
+
+        let editCell = document.createElement("button");
+        editCell.textContent = "Edit";
+        editCell.id = obj.id;
+        row.appendChild(editCell);
+        editCell.onclick = editRow;
+
+        row.appendChild(cell);
+
+        let deleteCell = document.createElement("button");
+        deleteCell.textContent = "Delete";
+        deleteCell.id = obj.id;
+
+        deleteCell.onclick = deleteRow;
+        cell.appendChild(deleteCell);
+
+        tbody.appendChild(row);
+    }
+
+
+}
+
+var sortOrder_q = 1;
+document.getElementById("sortQuantity").onclick = function () {
+    let tbody = document.querySelector("#datatable #table")
+
+    if (sortOrder_q == 1) {
+        sortOrder_q *= -1;
+    }
+    else {
+        sortOrder_q = 1;
+    }
+    storedArray = JSON.parse(localStorage.getItem("products"));
+    const locale = 'en-US'
+    storedArray = storedArray.sort((a, b) => {
+        return sortOrder_q === 1 ? a.quantity - b.quantity : b.quantity - a.quantity;
+    });
+
+    tbody.innerHTML = "";
+
+
+    for (let i = 0; i < storedArray.length; i++) {
+        let obj = storedArray[i];
+
+        let row = document.createElement("tr");
+
+        let idCell = document.createElement("td");
+
+        idCell.textContent = id_count;
+        row.appendChild(idCell);
+
+        let nameCell = document.createElement("td");
+        nameCell.textContent = obj.name;
+        row.appendChild(nameCell);
+
+        let quantityCell = document.createElement("td");
+        quantityCell.textContent = obj.quantity;
+        row.appendChild(quantityCell);
+
+        let priceCell = document.createElement("td");
+        priceCell.textContent = obj.price;
+        row.appendChild(priceCell);
+
+
+        let totalCell = document.createElement("td");
+        let total = obj.price * obj.quantity;
+        totalCell.textContent = total;
+        row.appendChild(totalCell);
+
+        let descriptionCell2 = document.createElement("td");
+        descriptionCell2.textContent = obj.description;
+        row.appendChild(descriptionCell2);
+
+
+
+        let cell = document.createElement("td");
+        row.appendChild(cell)
+
+        let editCell = document.createElement("button");
+        editCell.textContent = "Edit";
+        editCell.id = obj.id;
+        row.appendChild(editCell);
+        editCell.onclick = editRow;
+
+        row.appendChild(cell);
+
+        let deleteCell = document.createElement("button");
+        deleteCell.textContent = "Delete";
+        deleteCell.id = obj.id;
+
+        deleteCell.onclick = deleteRow;
+        cell.appendChild(deleteCell);
+
+        tbody.appendChild(row);
+    }
+
+
+}
 window.addEventListener("load", function () {
     viewProductDetails();
 });

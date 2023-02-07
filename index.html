@@ -27,7 +27,7 @@
                             <input type="text" placeholder="Title" class="form-control" id="inputProductName" required>
                             <br>
                             <label for="inputProductQuantity">Quantity</label>
-                            <input type="text" placeholder="Quantity" class="form-control" id="inputProductQuantity"
+                            <input type="number" placeholder="Quantity" class="form-control" id="inputProductQuantity"
                                 required>
                             <br>
                             <label for="inputProductPrice">Price</label>
@@ -54,10 +54,18 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Product Name</th>
-                                        <th>Quantity</th>
-                                        <th>Price</th>
-                                        <th>Total</th>
+                                        <a href="">
+                                            <th id="sortname">Product Name</th>
+                                        </a>
+                                        <a href="">
+                                            <th id="sortQuantity">Quantity</th>
+                                        </a>
+                                        <a href="">
+                                            <th id="sortPrice">Price</th>
+                                        </a>
+                                        <a href="">
+                                            <th id="sortTotal">Total</th>
+                                        </a>
                                         <th>Description</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
@@ -73,7 +81,7 @@
             </div>
         </div>
     </div>
-
+    <i class="fa-solid fa-sort"></i>
     <!-- Modal -->
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
         aria-hidden="true">
@@ -92,7 +100,7 @@
                             required>
                         <br>
                         <label for="inputProductQuantity">Quantity</label>
-                        <input type="text" name="quantity" placeholder="Quantity" class="form-control"
+                        <input type="number" name="quantity" placeholder="Quantity" class="form-control"
                             id="EditProductQuantity" required>
                         <br>
                         <label for="inputProductPrice">Price</label>
