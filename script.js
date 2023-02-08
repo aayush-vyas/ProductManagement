@@ -63,7 +63,7 @@ function viewProductDetails() {
 
 
         let totalCell = document.createElement("td");
-        let total = obj.price * obj.quantity;
+        let total = parseFloat(obj.price * obj.quantity).toFixed(2);
         totalCell.textContent = total;
         row.appendChild(totalCell);
 
@@ -471,13 +471,67 @@ function updateRow() {
 function CloseModal() {
     $('.modal').modal('hide');
 }
-
+var array = new Array();
 document.querySelector(".form-floating input").addEventListener("input", function () {
     let searchVal = document.querySelector("#floatingInput").value;
+    let tbody = document.querySelector("#datatable #table")
+    tbody.innerHTML = "";
     let storedArray = JSON.parse(localStorage.getItem("products"));
     for (let i = 0; i < storedArray.length; i++) {
         if (storedArray[i].name.match(searchVal)) {
-            console.log(this.storedArray[i].name));
+            let obj = storedArray[i];
+
+            let row = document.createElement("tr");
+
+            let idCell = document.createElement("td");
+
+            idCell.textContent = id_count;
+            row.appendChild(idCell);
+
+            let nameCell = document.createElement("td");
+            nameCell.textContent = obj.name;
+            row.appendChild(nameCell);
+
+            let quantityCell = document.createElement("td");
+            quantityCell.textContent = obj.quantity;
+            row.appendChild(quantityCell);
+
+            let priceCell = document.createElement("td");
+            priceCell.textContent = obj.price;
+            row.appendChild(priceCell);
+
+
+            let totalCell = document.createElement("td");
+            let total = obj.price * obj.quantity;
+            totalCell.textContent = total;
+            row.appendChild(totalCell);
+
+            let descriptionCell2 = document.createElement("td");
+            descriptionCell2.textContent = obj.description;
+            row.appendChild(descriptionCell2);
+
+
+
+            let cell = document.createElement("td");
+            row.appendChild(cell)
+
+            let editCell = document.createElement("button");
+            editCell.textContent = "Edit";
+            editCell.id = obj.id;
+            row.appendChild(editCell);
+            editCell.onclick = editRow;
+
+            row.appendChild(cell);
+
+            let deleteCell = document.createElement("button");
+            deleteCell.textContent = "Delete";
+            deleteCell.id = obj.id;
+
+            deleteCell.onclick = deleteRow;
+            cell.appendChild(deleteCell);
+
+            tbody.appendChild(row);
         }
     }
 });
+

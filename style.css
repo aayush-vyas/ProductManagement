@@ -10,3 +10,19 @@
 .productSearch .form-floating {
     margin-left: 50%;
 }
+
+.price {
+    display: flex;
+    justify-content: center;
+}
+
+.input-group-prepend {
+    width: max-content;
+
+}
+
+
+
+.priceDisplay {
+    display: flex;
+}
