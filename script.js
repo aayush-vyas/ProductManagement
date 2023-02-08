@@ -466,3 +466,18 @@ function updateRow() {
     localStorage.setItem("products", JSON.stringify(storedArray));
 
 }
+
+
+function CloseModal() {
+    $('.modal').modal('hide');
+}
+
+document.querySelector(".form-floating input").addEventListener("input", function () {
+    let searchVal = document.querySelector("#floatingInput").value;
+    let storedArray = JSON.parse(localStorage.getItem("products"));
+    for (let i = 0; i < storedArray.length; i++) {
+        if (storedArray[i].name.match(searchVal)) {
+            console.log(this.storedArray[i].name));
+        }
+    }
+});

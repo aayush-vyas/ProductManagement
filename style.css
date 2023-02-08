@@ -1,0 +1,12 @@
+.productSearch h2 {
+    width: fit-content;
+}
+
+.productSearch {
+    display: flex;
+
+}
+
+.productSearch .form-floating {
+    margin-left: 50%;
+}
